@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-size: 100%;
+    background: #A3A3A3;
+    margin: 0px;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 38px;
+    color: white;
+}
+
+.caixa {
+    width: 907px;
+    height: 583px;
+    left: 266px;
+    top: 212px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 19px;
+    margin: auto;
+    padding: 30px;
+}
+
+h2.titulo-da-interface{
+    display: flex;
+    justify-content: center;
+    font-size: 22pt;
+    margin-bottom: 5px;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+p.titulo-da-interface{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    
+    color: #000000;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+p.data-intedace{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.46);
+    margin-bottom: 38px;
+}
+
+.habitos{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    margin: 76px 0px;
+    font-size: 16pt;
+    margin-bottom: 175px;
+    margin-top: 0px;
+    box-sizing: border-box;
+}
+
+.habitos p{
+    margin: 14px 10px;
+
+}
+
+.butAddHabito{
+    border: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 61px;
+    margin-bottom: 32px;
+
+}
+
+.status {
+    font-size: 16pt;
+    display: flex;
+    align-content: flex-end;
+    justify-content: space-evenly;
+
+}
