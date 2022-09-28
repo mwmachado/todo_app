@@ -5,13 +5,16 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-weight: 500;
 }
 
 body{
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-size: 100%;
-    background: #A3A3A3;
+    background-image: linear-gradient(179.98deg, #B224EF 0.01%, #7579FF 99.99%), linear-gradient(179.98deg, #560E9E 0.01%, #511085 46.36%, #43A316 99.99%);
+    background-blend-mode: lighten;
+    background-attachment: fixed;
     margin: 0px;
 }
 
@@ -21,7 +24,9 @@ body{
     align-items: center;
     justify-content: center;
     padding-top: 38px;
-    color: white;
+    color: rgb(255, 255, 255);
+    font-size: 15pt;
+    
 }
 
 .caixa {
@@ -39,9 +44,9 @@ body{
 h2.titulo-da-interface{
     display: flex;
     justify-content: center;
-    font-size: 22pt;
+    font-size: 25pt;
     margin-bottom: 5px;
-    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 p.titulo-da-interface{
@@ -66,24 +71,41 @@ p.data-intedace{
     flex-direction: column;
     align-content: space-between;
     margin: 76px 0px;
-    font-size: 16pt;
-    margin-bottom: 175px;
+    font-size: 13pt;
+    margin-bottom: 230px;
     margin-top: 0px;
     box-sizing: border-box;
 }
 
 .habitos p{
-    margin: 14px 10px;
+    margin: 10px 60px;
 
 }
 
 .butAddHabito{
-    border: none;
+    align-items: center;
     display: flex;
     justify-content: center;
-    margin-top: 61px;
-    margin-bottom: 32px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
 
+.btn-add-habito{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    color: #a3a3a3;
+
+    background: white;
+    padding: 2px 35px;
+    border-radius: 15px;
 }
 
 .status {
@@ -92,4 +114,14 @@ p.data-intedace{
     align-content: flex-end;
     justify-content: space-evenly;
 
+}
+
+.status-das-tarefas{
+    padding: 5px 85px;
+    color: white;
+    background: #7630BB;
+    border-radius: 15px;
+    text-align: center;
+    border-radius: 40px; 
+    font-size: 13pt;   
 }
