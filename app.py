@@ -1,45 +1,32 @@
-# flask --app app.py run'''
-from flask import Flask
+from flask import Flask, url_for, redirect, render_template, request
+import pandas as pd
 
 app = Flask(__name__) # create a WSGI application
 
-tarefas = []
-concluidas = []
+tarefas = pd.read_csv('tarefas.csv', index_col='tarefas')['concluidas']
 
-# create the first route
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    if request.args.get('habito') and request.args.get('habito') not in tarefas.index:
+        tarefas[request.args.get('habito')] = False
+        tarefas.to_csv('tarefas.csv', index_label='tarefas')
+    return render_template('app.html', tarefas=tarefas)
 
-# simple routes
-@app.route('/tarefas')
-def mostrar_tarfas():
-    return str(tarefas) #tarefas
+@app.route('/remover/<string:tarefa>')
+def remover(tarefa):
+    del tarefas[tarefa]
+    tarefas.to_csv('tarefas.csv', index_label='tarefas')
+    print(f'Tarefa {tarefa} removida!')
+    return redirect(url_for('index'))
 
-@app.route('/concluidas')
-def mostrar_concluidas():
-    return str(concluidas) #tarefas
+@app.route('/concluir/<string:tarefa>')
+def concluir(tarefa):
+    tarefas[tarefa] = True
+    print(f'Tarefa {tarefa} concluída!')
+    return redirect(url_for('index'))
 
-# routes with parameters
-@app.route('/<name>')
-def hello_name(name):
-    return f"Hello, {name}"
-
-@app.route('/adicionar/<tarefa>')
-def adicionar_tarefa(tarefa):
-    tarefas.append(tarefa)
-    return 'Tarefa Adicionada'
-
-@app.route('/remover/<tarefa>')
-def remover_tarefa(tarefa):
-    tarefas.remove(tarefa)
-    return 'Tarefa Removida'
-
-@app.route('/concluir/<tarefa>')
-def concluir_tarefa(tarefa):
-    tarefas.remove(tarefa)
-    concluidas.append(tarefa)
-    return 'Tarefa Concluída'
-
-# controle de erros (if...else...)
-# utilização de arquivos (pandas)
+@app.route('/restaurar/<string:tarefa>')
+def restaurar(tarefa):
+    tarefas[tarefa] = False
+    print(f'Tarefa {tarefa} concluída!')
+    return redirect(url_for('index'))

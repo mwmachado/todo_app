@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <meta name="description" content="App para organizar sua rotina e ajudar a ser mais produtivo">
+    <title>Todapp - App de hábitos</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="titulo">
+        <h1>Tarefas diarias</h1>
+    </div>
+    <div class="butAddHabito">
+        <form action="" method="get">
+            <input type="text" name="habito" id="habito" placeholder="Adicionar um Hábito">
+            <button type="submit"><i class="material-icons">add</i></button>
+        </form>
+    </div>
+    <div class="interface">
+        <div class="caixa">
+        <div class="header-da-interface">
+            <h2 class="titulo-da-interface">Tarefas do dia</h1>
+            <p class="data-intedace">Data: dd/mm/yyy</p>
+        </div>
+            {%if not tarefas.empty%}
+                <h1>Em andamento</h1>
+                <ul>
+                    {%for habito in tarefas[tarefas == False].index%}
+                    <li>
+                        <span>{{habito}}</span>
+                        <a href="/concluir/{{habito}}"><button><i class="material-icons">done</i></button></a>
+                        <a href="/remover/{{habito}}"><button><i class="material-icons">close</i></button></a>
+                    </li>
+                    {%endfor%}
+                </ul>
+
+                <h1>Concluídas</h1>
+                <ul>
+                {%for habito in tarefas[tarefas].index%}
+                <li>
+                    <span style="text-decoration: line-through;">{{habito}}</span>
+                    <a href="/restaurar/{{habito}}"><button><i class="material-icons">arrow_back</i></button></a>
+                </li>
+                {%endfor%}
+                </ul>
+            {%else%}
+                <span>Não há hábitos!</span>
+            {%endif%}        
+        <footer class="status">
+            <p>Status do dia:</p>
+            <div class="status-das-tarefas">Exelente</div>
+        </footer>
+        </div>
+    </div>
+</body>
+</html>
